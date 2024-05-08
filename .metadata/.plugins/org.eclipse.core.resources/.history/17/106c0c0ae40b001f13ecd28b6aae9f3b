@@ -1,6 +1,0 @@
-##############################
-#### @Author Sanjeev Kumar ###
-#### @Date   05/05/2024    ###
-##############################
-spring.profiles.active=prod
-global.example.property = Sanjeev => I am coming from global configuration
