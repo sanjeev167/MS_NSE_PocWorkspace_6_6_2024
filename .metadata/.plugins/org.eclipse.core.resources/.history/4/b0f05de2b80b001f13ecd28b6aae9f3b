@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.nse.ctrl;
+
+/**
+ * @author sanjeevkumar
+ *
+ */
+public class ConfigClientController {
+
+}

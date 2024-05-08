@@ -1,0 +1,23 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+#spring.profiles.active=prod
+global.example.property = Sanjeev[MicroService-Global] => I am coming from global-configuration file of Config-Server.
+
+##############################################################
+#### Configuration for registering itself with Eureka Server
+#### All these details are being moved from local to Git and 
+#### now they will be picked from here. 
+##############################################################
+#This setting is making it discoverable through Discovery server
+spring.cloud.config.discovery.enabled=true
+
+eureka.instance.hostname=localhost
+eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+
+
+

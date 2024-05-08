@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package com.nse.ctrl;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author sanjeevkumar
+ *
+ */
+@RestController
+public class ConfigClientController {
+
+    @Value("${example.property}")
+    private String exampleProperty;
+    
+    @Value("${global.example.property}")
+    private String globalExampleProperty;
+    
+  // @Value("${deafault.example.property}")
+    private String defaultExampleProperty;
+    
+    @GetMapping("/getConfig")
+    public String getConfig() {
+        return "Configuration property value: " + exampleProperty+" Defalut property key => "+globalExampleProperty;
+        //return "Configuration property value: " + exampleProperty;
+    }
+}

@@ -1,0 +1,6 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+example.property = Sanjeev[ms-payment] => I am coming from dev-environment-configuration file of this micro-service available at Config-Server.

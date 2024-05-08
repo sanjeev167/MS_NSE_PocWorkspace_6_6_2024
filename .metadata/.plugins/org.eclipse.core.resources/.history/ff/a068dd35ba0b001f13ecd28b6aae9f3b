@@ -1,0 +1,8 @@
+
+
+server.port=8081
+spring.application.name=ms-user
+spring.cloud.config.uri=http://localhost:8888
+management.endpoints.web.exposure.include=refresh
+
+

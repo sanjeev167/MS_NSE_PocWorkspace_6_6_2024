@@ -1,0 +1,7 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+server.port=${port:8082}
+deafault.example.property = Sanjeev[ms-payment] => I am coming from default-configuration file of this micro-service available at Config-Server.

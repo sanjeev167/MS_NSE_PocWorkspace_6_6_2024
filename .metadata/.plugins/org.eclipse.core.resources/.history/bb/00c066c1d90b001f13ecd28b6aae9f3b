@@ -1,0 +1,50 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+#debug=true
+server.port=${port:8081}
+spring.application.name=ms-user
+spring.profiles.active=dev
+##################################################
+#### Config-Server related configuration #########
+##################################################
+
+## This is telling the limits-service to fetch configuration from config server.
+spring.cloud.config.discovery.enabled=true
+## This is the id of the config-server with which it is registered with Eureka discovery server
+spring.cloud.config.discovery.service-id=ms-config
+
+##############################################################
+#### Configuration for registering itself with Eureka Server
+##############################################################
+
+eureka.instance.hostname=localhost
+eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+
+#spring.cloud.gateway.discovery.locator.enabled=true	
+#spring.cloud.gateway.discovery.locator.lowerCaseServiceId=true
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+

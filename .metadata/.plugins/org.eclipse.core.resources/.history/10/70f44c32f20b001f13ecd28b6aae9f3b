@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package com.nse.ctrl;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author sanjeevkumar
+ *
+ */
+@RestController
+public class ConfigClientController {
+
+    @Value("${example.property}")
+    private String exampleProperty;
+    
+    @Value("${global.example.property}")
+    private String globalExampleProperty;
+    
+   @Value("${deafault.example.property}")
+    private String defaultExampleProperty;
+    
+    @GetMapping("/getConfig")
+    public String getConfig() {
+        return "###########  Configured key-values coming from different configuration files available at Config-Server. ##########<br><br> [1] " 
+																					                + exampleProperty
+																					        		+"<br> [2] "+defaultExampleProperty
+																					        		+"<br> [3] "+ globalExampleProperty;
+        //return "Configuration property value: " + exampleProperty;
+    }
+}

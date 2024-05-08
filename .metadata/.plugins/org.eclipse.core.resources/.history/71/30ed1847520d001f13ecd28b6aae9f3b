@@ -1,0 +1,6 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+example.property = Sanjeev[ms-order] => I am coming from prod-environment-configuration file of this micro-service available at Config-Server.

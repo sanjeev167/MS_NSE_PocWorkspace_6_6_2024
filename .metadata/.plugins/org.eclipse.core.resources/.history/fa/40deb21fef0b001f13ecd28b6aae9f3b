@@ -1,0 +1,20 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+server.port=${port:8081}
+
+
+##############################################################
+#### Configuration for registering itself with Eureka Server
+#### All these details are being moved from local to Git and 
+#### now they will be picked from here. 
+##############################################################
+
+eureka.instance.hostname=localhost
+eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+example.property = Sanjeev => is coming from sit environment of ms-user.properties.

@@ -1,0 +1,40 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+deafault.example.property = Sanjeev [ ms-gateway => default-config ] => A key-value which is loaded in ms-gateway [micro-service] from GIT-Repository via a Config-Server.
+
+server.port=${port:8765}
+
+#####################################################
+### [1] Routing-Mapping for ms-user micro-service ###
+#####################################################
+
+spring.cloud.gateway.routes[0].id = ms-user-route
+#define the url that will be used for calling an api via gateway. ** is the place where you will put the api method request path
+spring.cloud.gateway.routes[0].predicates[0]=Path=/gateway/api/ms-user/**
+spring.cloud.gateway.routes[0].uri = http://localhost:8081
+#StripPrefix count is two here. api and ms-user that we have to remove while routing
+spring.cloud.gateway.routes[0].filters[0]=StripPrefix=2
+
+#####################################################
+### [2] Routing for ms-order micro-service ##
+#####################################################
+
+spring.cloud.gateway.routes[1].id = ms-order-route
+spring.cloud.gateway.routes[1].predicates[0]=Path=/gateway/api/ms-order/**
+spring.cloud.gateway.routes[1].uri = http://localhost:8083
+spring.cloud.gateway.routes[1].filters[0]=StripPrefix=2
+
+#####################################################
+### [3] Routing for ms-mail micro-service ###
+#####################################################
+
+spring.cloud.gateway.routes[2].id = ms-mail-route
+spring.cloud.gateway.routes[2].predicates[0]=Path=/gateway/api/ms-mail/**
+spring.cloud.gateway.routes[2].uri = http://localhost:8084
+spring.cloud.gateway.routes[2].filters[0]=StripPrefix=2
+
+
+

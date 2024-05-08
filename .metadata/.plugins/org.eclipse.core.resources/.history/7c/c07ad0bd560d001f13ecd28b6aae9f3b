@@ -1,0 +1,9 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+
+
+example.property = Sanjeev[ms-order environment-prod] => I am coming from a git-based centralized configuration file through a Config-Server.
+

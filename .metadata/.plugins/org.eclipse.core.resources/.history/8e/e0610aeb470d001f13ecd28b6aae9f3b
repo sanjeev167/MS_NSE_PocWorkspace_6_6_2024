@@ -1,0 +1,8 @@
+##############################
+#### @Author Sanjeev Kumar ###
+#### @Date   05/05/2024    ###
+##############################
+
+deafault.example.property = Sanjeev[ms-gateway] => I am coming from default-configuration file of this micro-service available at Config-Server.
+
+server.port=${port:8765}
