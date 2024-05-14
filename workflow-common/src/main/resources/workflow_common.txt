@@ -1,0 +1,55 @@
+Workflow: => A workflow is a set of sequence of different tasks which are executed repeatedly to complete one parent or main task.While 
+performing different tasks, each task may be executed by different sources called  micro services. Each task executor-micro-service may 
+completes its task in few micro seconds or it may take a day to complete. Sometimes, a task-executor micro-service fails to execute due to any
+reason like network failure or congestion  or timeout. To design such a system which could handle such a failures is a difficult task. But Temoral
+tool handles all such failures easily using its some configuration. In fact temporal is a workflow managing tool. it is a durable, reliable, scalable 
+workflow orchestrator (composer) engine.
+
+Temproal-Working principle: => Temoral-Client and Temoral-Server are two main components of Temporal-Engine. Temporal-Client is defined
+for each micro-service which is a part of a defined workflow. Through gRPC call, a Temporal-Client is submitted to Temporal-Server for executing 
+a workflow. Foe implementation point of view, we need to design different Temporal-client for each micro-service participating in a workflow.
+
+Temporal-Client:=> Each Temporal-Client has four units.
+[1] Activities: It is a set of tasks which will participate in a workflow.
+[2] Workflow: It consumes activities
+[3] Worker: It will execute the workflow.
+[4] Client SDk : Temoral-Client communicates with Temporal-Server using client sdk via gRPC calls. 
+
+Example: Consider a scenario of order placement for a product. When an order is placed, it has to go through following sequence of steps to
+complete the order placement.
+
+[0] Step-0: Before sending an order within a workflow execution, an order eligibility check performed first. Because only an eligible order will
+go within a workflow execution. These are simple validation as per business need which will be performed before executing the workflow. For
+workflow implementation and check, I am assuming an order coming within our system is an eligible order for executing within an workflow.
+
+
+[1] Step-1: For completing an order, we need to recognize all those activities which are required for completing an order. Here, in the considered 
+scenario, we found the following activities.
+
+    [a] Payment Activity: Before doing any processing of an order, the payment activity should be completed first.
+    [b] Inventory Reserve Activity: Once the payment activity is completed, we will reseve the inventory for this order.
+    [c] Shipment Activity: Once the inventory reserve activity is completed, we will complete shipment activity.
+    [d] Order Activity: Once the shipment activity is completed, we will complete final order completion activity.
+    
+    Corresponding to each activities listed above, we will construct an Activity class within the respective micro 
+    service. But what these respective class will implement will be decided by its respective interface. Their respective
+    interfaces will be defined within a util project which will be consumed by each microservice participating in workflow. 
+
+[2] Step-2: TaskQueue: This is an enum file which will have an enum varible corresponding to each activity defined
+above.
+.
+[3] Step-3: OrderDTO: It is a dto object which will have an order related properties with their getters and setters.
+
+[4] Step-4: GlobalEceptionHandler and error handling will also be centralized in this util project.
+
+Remark: 
+ [1] To give an access of activities, OrderDTO, GlobalExceptionHandler and error handler, this util project will
+be included as a dependency in each micro service which is participating in this order workflow execution.
+
+[2] This project should be built first as its jar is going to be consumed by all those micro services which are going
+ to participate in the workflow.
+
+
+
+
+
