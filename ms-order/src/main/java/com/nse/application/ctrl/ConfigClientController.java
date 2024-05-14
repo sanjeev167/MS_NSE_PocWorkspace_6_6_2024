@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nse.ctrl;
+package com.nse.application.ctrl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author sanjeevkumar
- *
+ * <br>11-May-2024
+ * <br>11:37:16 am
+ * <br>Objective: 
  */
 @RestController
 @RequestMapping("")
