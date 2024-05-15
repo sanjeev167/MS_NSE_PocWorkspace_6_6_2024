@@ -55,33 +55,33 @@ public class OrderFulfillmentWorkflowImpl implements OrderFulfillmentWorkflow {
 	  private int maxAttemptsCount4Local=10;
 
 	  private final ActivityOptions paymentActivityOptions = ActivityOptions.newBuilder()
-																				              .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Activity))
-																				              .setTaskQueue(TaskQueue.PAYMENT_ACTIVITY_TASK_QUEUE.name())
-																				               .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Activity).build())
-																				               .build();
+									                         .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Activity))
+														     .setTaskQueue(TaskQueue.PAYMENT_ACTIVITY_TASK_QUEUE.name())
+															 .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Activity).build())
+															 .build();
 	  
 	  private final ActivityOptions inventoryActivityOptions = ActivityOptions.newBuilder()
-																				              .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Activity))
-																				              .setTaskQueue(TaskQueue.INVENTORY_ACTIVITY_TASK_QUEUE.name())
-																				              .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Activity).build())
-																				               .build();
+											                  .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Activity))
+											                  .setTaskQueue(TaskQueue.INVENTORY_ACTIVITY_TASK_QUEUE.name())
+											                  .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Activity).build())
+													          .build();
 	  private final ActivityOptions shippingActivityOptions = ActivityOptions.newBuilder()
-	                                                                                        .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Activity))
-	                                                                                        .setTaskQueue(TaskQueue.SHIPPING_ACTIVITY_TASK_QUEUE.name())
-	                                                                                        .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Activity).build())
-	                                                                                         .build();	  
+	                                                          .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Activity))
+	                                                          .setTaskQueue(TaskQueue.SHIPPING_ACTIVITY_TASK_QUEUE.name())
+	                                                          .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Activity).build())
+	                                                          .build();	  
 	  private final LocalActivityOptions localActivityOptions = LocalActivityOptions.newBuilder()
-	                                                                                          .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Local))
-	                                                                                          .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Local).build())
-	                                                                                          .build();
-	  private final DebitPaymentActivity paymentActivity =
-                                                                                        Workflow.newActivityStub(DebitPaymentActivity.class, paymentActivityOptions);
+	                                                          .setStartToCloseTimeout(Duration.ofMinutes(startToCloseTimeout4Local))
+	                                                          .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(maxAttemptsCount4Local).build())
+	                                                          .build();
+	  private final DebitPaymentActivity paymentActivity = 
+			                       Workflow.newActivityStub(DebitPaymentActivity.class, paymentActivityOptions);
 	  private final ReserveInventoryActivity reserveInventoryActivity =
-                                                                                       Workflow.newActivityStub(ReserveInventoryActivity.class, inventoryActivityOptions);
+                                   Workflow.newActivityStub(ReserveInventoryActivity.class, inventoryActivityOptions);
 	  private final ShipGoodsActivity shipGoodsActivity = 
-                                                                                       Workflow.newActivityStub(ShipGoodsActivity.class, shippingActivityOptions);
+                                   Workflow.newActivityStub(ShipGoodsActivity.class, shippingActivityOptions);
 	  private final CompleteOrderActivity orderActivity =
-			                                                                           Workflow.newLocalActivityStub(CompleteOrderActivity.class, localActivityOptions);
+			                       Workflow.newLocalActivityStub(CompleteOrderActivity.class, localActivityOptions);
 
 	  @Override
 	  public void createOrder(OrderDTO orderDTO) {

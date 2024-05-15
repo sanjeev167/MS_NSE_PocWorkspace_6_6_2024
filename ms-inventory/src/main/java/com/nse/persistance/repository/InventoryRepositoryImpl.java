@@ -11,7 +11,6 @@ import com.nse.application.domain.model.Inventory;
 import com.nse.application.domain.repository.InventoryRepository;
 import com.nse.persistance.mapper.InventoryPersistableMapper;
 import com.nse.persistance.repository.jpa.InventoryJpaRepository;
-import com.nse.persistance.repository.model.InventoryPersistable;
 /**
  * @author sanjeevkumar
  * 11-May-2024

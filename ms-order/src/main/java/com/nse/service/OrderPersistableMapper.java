@@ -8,7 +8,7 @@ import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import com.nse.domain.Order;
-import com.nse.repo.OrderPersistable;
+import com.nse.entities.ProductOrder;
 /**
  * @author sanjeevkumar
  * 11-May-2024
@@ -20,9 +20,9 @@ public abstract class OrderPersistableMapper {
 		      Mappers.getMapper(OrderPersistableMapper.class);
 
 		  @Mapping(source = "orderId", target = "id")
-		  public abstract OrderPersistable map(Order order);
+		  public abstract ProductOrder map(Order order);
 
 		  @Mapping(source = "id", target = "orderId")
-		  public abstract Order map(OrderPersistable orderPersistable);
+		  public abstract Order map(ProductOrder productOrder);
 }
 	
