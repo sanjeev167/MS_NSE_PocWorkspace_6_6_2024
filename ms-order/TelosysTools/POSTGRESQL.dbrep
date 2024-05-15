@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+    <tableList databaseId="0" databaseName="POSTGRESQL" databaseProductName="PostgreSQL" generation="2024-05-15 13:20:16">
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="ProductOrder" name="product_order" schema="public">
+            <column dbAutoIncremented="true" dbComment="" dbDefaultValue="nextval('product_order_id_seq'::regclass)" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="bigserial" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="product_Id" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="varchar" inputType="text" javaName="productId" javaType="java.lang.String" jdbcTypeCode="12" label="Product id" maxLength="50" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="order_status" dbNotNull="false" dbPosition="3" dbSize="25" dbTypeName="varchar" inputType="text" javaName="orderStatus" javaType="java.lang.String" jdbcTypeCode="12" label="Order status" maxLength="25" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="price" dbNotNull="false" dbPosition="4" dbSize="17" dbTypeName="float8" inputType="number" javaName="price" javaType="java.lang.Double" jdbcTypeCode="8" label="Price" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="quantity" dbNotNull="false" dbPosition="5" dbSize="17" dbTypeName="float8" inputType="number" javaName="quantity" javaType="java.lang.Double" jdbcTypeCode="8" label="Quantity" notNull="false" selected="true"/>
+        </table>
+    </tableList>
+</root>
