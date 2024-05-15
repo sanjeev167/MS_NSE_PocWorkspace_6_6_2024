@@ -32,7 +32,7 @@ public class ProductOrder implements Serializable {
     private Long       id ;
 
     //--- ENTITY DATA FIELDS 
-    @Column(name="product_Id", length=50)
+    @Column(name="product_id", length=50)
     private String     productId ;
 
     @Column(name="order_status", length=25)

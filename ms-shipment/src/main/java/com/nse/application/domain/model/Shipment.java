@@ -9,7 +9,7 @@ package com.nse.application.domain.model;
  * 10:30:18 pm
  */
 public class Shipment {
-	 private Long shipmentId;
+	  private Long shipmentId;
 	  private Long orderId;
 	  private Long productId;
 	  private String trackingId;

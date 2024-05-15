@@ -13,7 +13,7 @@ import com.nse.domain.Order;
  * 12:26:56 pm
  */
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public abstract class OrderRequestMapper {
+public interface OrderRequestMapper {
 	
 	public static final OrderRequestMapper MAPPER = Mappers.getMapper(OrderRequestMapper.class);
 

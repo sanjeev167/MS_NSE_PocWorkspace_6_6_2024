@@ -3,7 +3,6 @@
  */
 package com.nse.ctrl;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -16,7 +15,7 @@ import jakarta.validation.constraints.NotNull;
 public class OrderRequest {
 	
 	 @NotNull(message = "Product ID is required.")
-	  @NotBlank(message = "Product ID cannot be blank.")
+	 // @NotBlank(message = "Product ID cannot be blank.")
 	  private Long productId;
 
 	  @NotNull(message = "Price is required.")

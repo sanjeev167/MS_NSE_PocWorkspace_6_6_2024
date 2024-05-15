@@ -5,14 +5,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.nse.activities.DebitPaymentActivity;
-import com.nse.application.domain.repository.PaymentRepository;
-import com.nse.application.service.PaymentService;
-import com.nse.application.service.impl.PaymentServiceImpl;
-import com.nse.infrastructure.temporal.orchestrator.WorkflowOrchestratorClient;
-import com.nse.infrastructure.temporal.orchestrator.worker.PaymentWorker;
-import com.nse.infrastructure.temporal.workflow.activity.impl.DebitPaymentActivityImpl;
-import com.nse.persistence.repository.PaymentRepositoryImpl;
-import com.nse.persistence.repository.jpa.PaymentJpaRepository;
+import com.nse.repo.PaymentJpaRepository;
+import com.nse.service.PaymentLocalService;
+import com.nse.service.PaymentLocalServiceImpl;
+import com.nse.service.PaymentGatewayService;
+import com.nse.service.PaymentGatewayServiceImpl;
+import com.nse.temporal.WorkflowOrchestratorClient;
+import com.nse.temporal.worker.PaymentWorker;
+import com.nse.temporal.workflow.activity.DebitPaymentActivityImpl;
 /**
  * @author sanjeevkumar
  * 11-May-2024
@@ -32,8 +32,8 @@ public class PaymentServiceAppConfig {
 	  }
 
 	  @Bean
-	  public PaymentService paymentService() {
-	    return new PaymentServiceImpl();
+	  public PaymentGatewayService paymentService() {
+	    return new PaymentGatewayServiceImpl();
 	  }
 
 	  @Bean
@@ -48,7 +48,7 @@ public class PaymentServiceAppConfig {
 	  }
 
 	  @Bean
-	  public PaymentRepository paymentRepository(PaymentJpaRepository paymentJpaRepository) {
-	    return new PaymentRepositoryImpl(paymentJpaRepository);
+	  public PaymentLocalService paymentRepository(PaymentJpaRepository paymentJpaRepository) {
+	    return new PaymentLocalServiceImpl(paymentJpaRepository);
 	  }
 }

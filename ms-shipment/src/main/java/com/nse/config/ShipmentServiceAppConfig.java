@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.nse.activities.ShipGoodsActivity;
-import com.nse.application.domain.repository.ShipmentRepository;
 import com.nse.application.domain.service.ShipmentService;
 import com.nse.application.domain.service.ShipmentServiceImpl;
-import com.nse.infrastructure.temporal.orchestrator.WorkflowOrchestratorClient;
-import com.nse.infrastructure.temporal.orchestrator.worker.ShipmentWorker;
-import com.nse.infrastructure.temporal.workflow.activity.impl.ShipGoodsActivityImpl;
-import com.nse.persistence.repository.ShipmentRepositoryImpl;
-import com.nse.persistence.repository.jpa.ShipmentJpaRepository;
+import com.nse.repo.ShipmentJpaRepository;
+import com.nse.service.ShipmentLocalApiService;
+import com.nse.service.ShipmentLocalApiServiceImpl;
+import com.nse.temporal.orchestrator.WorkflowOrchestratorClient;
+import com.nse.temporal.orchestrator.worker.ShipmentWorker;
+import com.nse.temporal.workflow.activity.ShipGoodsActivityImpl;
 /**
  * @author sanjeevkumar
  * 11-May-2024
@@ -22,7 +22,7 @@ import com.nse.persistence.repository.jpa.ShipmentJpaRepository;
  */
 @Configuration
 public class ShipmentServiceAppConfig {
-	 @Bean
+	@Bean
 	  public ShipmentWorker shipmentWorker(ShipmentJpaRepository shipmentJpaRepository) {
 	    return new ShipmentWorker(
 	        shipGoodsActivity(shipmentJpaRepository), workflowOrchestratorClient());
@@ -30,12 +30,12 @@ public class ShipmentServiceAppConfig {
 
 	  @Bean
 	  public ShipGoodsActivity shipGoodsActivity(ShipmentJpaRepository shipmentJpaRepository) {
-	    return new ShipGoodsActivityImpl(shipmentService(), shipmentRepository(shipmentJpaRepository));
+	    return new ShipGoodsActivityImpl(shipmentService(shipmentJpaRepository), shipmentLocalApiService(shipmentJpaRepository));
 	  }
 
 	  @Bean
-	  public ShipmentService shipmentService() {
-	    return new ShipmentServiceImpl();
+	  public ShipmentService shipmentService(ShipmentJpaRepository shipmentJpaRepository) {
+	    return new ShipmentServiceImpl(shipmentJpaRepository);
 	  }
 
 	  @Bean
@@ -50,7 +50,7 @@ public class ShipmentServiceAppConfig {
 	  }
 
 	  @Bean
-	  public ShipmentRepository shipmentRepository(ShipmentJpaRepository shipmentJpaRepository) {
-	    return new ShipmentRepositoryImpl(shipmentJpaRepository);
+	  public ShipmentLocalApiService shipmentLocalApiService(ShipmentJpaRepository shipmentJpaRepository) {
+	    return new ShipmentLocalApiServiceImpl(shipmentJpaRepository);
 	  }
 }

@@ -9,15 +9,16 @@ import org.mapstruct.factory.Mappers;
 
 import com.nse.domain.Order;
 import com.nse.entities.ProductOrder;
+
 /**
  * @author sanjeevkumar
  * 11-May-2024
  * 12:15:41 pm
  */
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class OrderPersistableMapper {
-	public static final OrderPersistableMapper MAPPER =
-		      Mappers.getMapper(OrderPersistableMapper.class);
+	public static final OrderPersistableMapper MAPPER =	Mappers.getMapper(OrderPersistableMapper.class);
 
 		  @Mapping(source = "orderId", target = "id")
 		  public abstract ProductOrder map(Order order);

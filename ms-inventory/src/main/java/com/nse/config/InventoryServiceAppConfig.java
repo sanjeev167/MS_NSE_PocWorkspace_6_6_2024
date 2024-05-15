@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.nse.activities.ReserveInventoryActivity;
-import com.nse.application.domain.repository.InventoryRepository;
-import com.nse.application.domain.repository.InventoryRepositoryImpl;
-import com.nse.persistance.repository.jpa.InventoryJpaRepository;
+import com.nse.repo.InventoryJpaRepository;
+import com.nse.service.InventoryService;
+import com.nse.service.InventoryServiceImpl;
 import com.nse.temporal.orchestrator.WorkflowOrchestratorClient;
 import com.nse.temporal.worker.InventoryWorker;
-import com.nse.temporal.workflow.activity.impl.ReserveInventoryActivityImpl;
+import com.nse.temporal.workflow.activity.ReserveInventoryActivityImpl;
 
 /**
  * @author sanjeevkumar
@@ -47,8 +47,8 @@ public class InventoryServiceAppConfig {
 	  }
 
 	  @Bean
-	  public InventoryRepository inventoryRepository(InventoryJpaRepository inventoryJpaRepository) {
-	    return new InventoryRepositoryImpl(inventoryJpaRepository);
+	  public InventoryService inventoryRepository(InventoryJpaRepository inventoryJpaRepository) {
+	    return new InventoryServiceImpl(inventoryJpaRepository);
 	  }
 
 }//End of InventoryServiceAppConfig 
