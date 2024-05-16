@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databases defaultId="1" maxId="10">
-    <db dialect="org.hibernate.dialect.PostgreSQLDialect" driver="org.postgresql.Driver" id="0" isolationLevel="" name="POSTGRESQL" poolSize="1" typeName="POSTGRESQL" url="jdbc:postgresql://localhost:5432/MS-Inventory">
+    <db dialect="org.hibernate.dialect.PostgreSQLDialect" driver="org.postgresql.Driver" id="0" isolationLevel="" name="POSTGRESQL" poolSize="1" typeName="POSTGRESQL" url="jdbc:postgresql://localhost:5432/MS-Shipment">
         <property name="user" value="postgres"/>
         <property name="password" value="postgres"/>
-        <metadata catalog="MS-Inventory" schema="public" table-name-exclude="" table-name-include="" table-name-pattern="%" table-types="TABLE"/>
+        <metadata catalog="MS-Shipment" schema="public" table-name-exclude="" table-name-include="" table-name-pattern="%" table-types="TABLE"/>
     </db>
 </databases>

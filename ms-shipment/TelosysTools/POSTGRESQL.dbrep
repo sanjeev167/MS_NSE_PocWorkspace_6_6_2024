@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Telosys Database Repository --><root>
-    <tableList databaseId="0" databaseName="POSTGRESQL" databaseProductName="PostgreSQL" generation="2024-05-16 00:51:30">
-        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="Inventory" name="inventory" schema="public">
-            <column dbAutoIncremented="true" dbComment="" dbDefaultValue="nextval('inventory_id_seq'::regclass)" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="bigserial" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
-            <column dbComment="" dbDefaultValue="" dbName="product_id" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="varchar" inputType="text" javaName="productId" javaType="java.lang.String" jdbcTypeCode="12" label="Product id" maxLength="50" notNull="false" selected="true"/>
-            <column dbComment="" dbDefaultValue="" dbName="quantity" dbNotNull="false" dbPosition="3" dbSize="17" dbTypeName="float8" inputType="number" javaName="quantity" javaType="java.lang.Double" jdbcTypeCode="8" label="Quantity" notNull="false" selected="true"/>
-            <column dbComment="" dbDefaultValue="" dbName="order_id" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="int4" inputType="number" javaName="orderId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Order id" notNull="false" selected="true"/>
+    <tableList databaseId="0" databaseName="POSTGRESQL" databaseProductName="PostgreSQL" generation="2024-05-16 11:40:16">
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="Shipment" name="shipment" schema="public">
+            <column dbAutoIncremented="true" dbComment="" dbDefaultValue="nextval('shipment_id_seq'::regclass)" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="bigserial" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="order_id" dbNotNull="false" dbPosition="2" dbSize="10" dbTypeName="int4" inputType="number" javaName="orderId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Order id" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="product_id" dbNotNull="false" dbPosition="3" dbSize="50" dbTypeName="varchar" inputType="text" javaName="productId" javaType="java.lang.String" jdbcTypeCode="12" label="Product id" maxLength="50" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="quantity" dbNotNull="false" dbPosition="4" dbSize="17" dbTypeName="float8" inputType="number" javaName="quantity" javaType="java.lang.Double" jdbcTypeCode="8" label="Quantity" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="tracking_id" dbNotNull="false" dbPosition="5" dbSize="50" dbTypeName="varchar" inputType="text" javaName="trackingId" javaType="java.lang.String" jdbcTypeCode="12" label="Tracking id" maxLength="50" notNull="false" selected="true"/>
         </table>
     </tableList>
 </root>
