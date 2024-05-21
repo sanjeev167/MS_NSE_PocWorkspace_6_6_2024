@@ -5,14 +5,14 @@ package com.nse.config;
 
 /**
  * @author sanjeevkumar
- * 09-May-2024
- * 11:18:22 pm
+ * <br>11-May-2024
+ * <br>11:52:20 am
+ * <br>Objective:
  */
 public class ApplicationProperties {
-
-	private String target;
-	private String workflowId;
-	private String workflowTaskQueue;
+	  private String target;
+	  private String workflowId;
+	  private String namespace;
 	/**
 	 * @return the target
 	 */
@@ -37,20 +37,12 @@ public class ApplicationProperties {
 	public void setWorkflowId(String workflowId) {
 		this.workflowId = workflowId;
 	}
-	/**
-	 * @return the workflowTaskQueue
-	 */
-	public String getWorkflowTaskQueue() {
-		return workflowTaskQueue;
+	public String getNamespace() {
+		return namespace;
 	}
-	/**
-	 * @param workflowTaskQueue the workflowTaskQueue to set
-	 */
-	public void setWorkflowTaskQueue(String workflowTaskQueue) {
-		this.workflowTaskQueue = workflowTaskQueue;
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
 	}
-	
-	
-	
 	  
-}//End of ApplicationProperties 
+	  
+}

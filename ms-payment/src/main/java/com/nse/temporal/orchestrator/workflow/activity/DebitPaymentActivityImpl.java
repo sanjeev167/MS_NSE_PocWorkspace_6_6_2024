@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nse.temporal.workflow.activity;
+package com.nse.temporal.orchestrator.workflow.activity;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

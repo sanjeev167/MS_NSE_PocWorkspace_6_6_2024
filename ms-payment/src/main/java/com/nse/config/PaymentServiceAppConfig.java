@@ -8,11 +8,11 @@ import com.nse.activities.DebitPaymentActivity;
 import com.nse.repo.PaymentJpaRepository;
 import com.nse.service.PaymentLocalService;
 import com.nse.service.PaymentLocalServiceImpl;
+import com.nse.temporal.orchestrator.WorkflowOrchestratorClient;
+import com.nse.temporal.orchestrator.worker.PaymentWorker;
+import com.nse.temporal.orchestrator.workflow.activity.DebitPaymentActivityImpl;
 import com.nse.service.PaymentGatewayService;
 import com.nse.service.PaymentGatewayServiceImpl;
-import com.nse.temporal.WorkflowOrchestratorClient;
-import com.nse.temporal.worker.PaymentWorker;
-import com.nse.temporal.workflow.activity.DebitPaymentActivityImpl;
 /**
  * @author sanjeevkumar
  * 11-May-2024

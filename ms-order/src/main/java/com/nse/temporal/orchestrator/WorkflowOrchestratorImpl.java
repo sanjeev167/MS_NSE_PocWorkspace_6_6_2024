@@ -31,15 +31,15 @@ public class WorkflowOrchestratorImpl 	implements WorkflowOrchestrator {
 		  public void createOrder(Order order) {
 		    var orderDTO = map(order);
 		    var workflowClient = workflowOrchestratorClient.getWorkflowClient();
-		    var orderFulfillmentWorkflow = workflowClient.newWorkflowStub(OrderFulfillmentWorkflow.class,
+		    var orderFulfillmentWorkflowStub = workflowClient.newWorkflowStub(OrderFulfillmentWorkflow.class,
 		                                                                                 WorkflowOptions.newBuilder()
 		                                                                                .setWorkflowId(applicationProperties.getWorkflowId() + "-" + orderDTO.getOrderId())
 		                                                                                .setTaskQueue(TaskQueue.ORDER_FULFILLMENT_WORKFLOW_TASK_QUEUE.name())
 		                                                                                .build());
 		    // Execute Sync
-		               //    orderFulfillmentWorkflow.createOrder(orderDTO);
+		    // orderFulfillmentWorkflow.createOrder(orderDTO);
 		    // Async execution
-		    WorkflowClient.start(orderFulfillmentWorkflow::createOrder, orderDTO);
+		    WorkflowClient.start(orderFulfillmentWorkflowStub::createOrder, orderDTO);
 		  }//End of createOrder
 
 	   /**

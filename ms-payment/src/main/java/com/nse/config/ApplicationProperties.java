@@ -5,12 +5,14 @@ package com.nse.config;
 
 /**
  * @author sanjeevkumar
- * 11-May-2024
- * 9:40:09 pm
+ * <br>11-May-2024
+ * <br>11:52:20 am
+ * <br>Objective:
  */
 public class ApplicationProperties {
-	private String target;
+	  private String target;
 	  private String workflowId;
+	  private String namespace;
 	/**
 	 * @return the target
 	 */
@@ -35,5 +37,12 @@ public class ApplicationProperties {
 	public void setWorkflowId(String workflowId) {
 		this.workflowId = workflowId;
 	}
+	public String getNamespace() {
+		return namespace;
+	}
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+	  
 	  
 }

@@ -46,9 +46,8 @@ public class InventoryWorker {
 		log.info("Registering worker..");
 
 		var workerOptions = WorkerOptions.newBuilder().build();
-
-		var workflowClient = workflowOrchestratorClient.getWorkflowClient();
-
+		
+		var workflowClient = workflowOrchestratorClient.getWorkflowClient();		
 		var workerFactory = WorkerFactory.newInstance(workflowClient);
 		var worker = workerFactory.newWorker(TaskQueue.INVENTORY_ACTIVITY_TASK_QUEUE.name(), workerOptions);
 

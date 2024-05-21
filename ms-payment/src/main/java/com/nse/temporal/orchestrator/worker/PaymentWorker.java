@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.nse.temporal.worker;
+package com.nse.temporal.orchestrator.worker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.nse.activities.DebitPaymentActivity;
 import com.nse.task_queue.TaskQueue;
-import com.nse.temporal.WorkflowOrchestratorClient;
+import com.nse.temporal.orchestrator.WorkflowOrchestratorClient;
 
 import io.temporal.worker.WorkerFactory;
 import io.temporal.worker.WorkerOptions;
@@ -46,7 +46,7 @@ public class PaymentWorker {
 
 	    var workerFactory = WorkerFactory.newInstance(workflowClient);
 	    var worker = workerFactory.newWorker(TaskQueue.PAYMENT_ACTIVITY_TASK_QUEUE.name(), workerOptions);
-
+	 
 	    worker.registerActivitiesImplementations(debitPaymentActivity);
 
 	    workerFactory.start();
