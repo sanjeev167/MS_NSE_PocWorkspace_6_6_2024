@@ -15,6 +15,7 @@ public class MsOrderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MsOrderApplication.class, args);
 	}
+	
 	@Bean
 	OtlpHttpSpanExporter otlpHttpSpanExporter(@Value("${tracing.url}") String url) {
 	    return OtlpHttpSpanExporter.builder()

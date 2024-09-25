@@ -1,4 +1,6 @@
-Workflow: => A workflow is a set of sequence of different tasks which are executed repeatedly to complete one parent or main task.While 
+
+Workflow: => 
+             A workflow is a set of sequence of different tasks which are executed repeatedly to complete one parent or main task.While 
 performing different tasks, each task may be executed by different sources called  micro services. Each task executor-micro-service may 
 completes its task in few micro seconds or it may take a day to complete. Sometimes, a task-executor micro-service fails to execute due to any
 reason like network failure or congestion  or timeout. To design such a system which could handle such a failures is a difficult task. But Temoral
@@ -41,6 +43,8 @@ above.
 [3] Step-3: OrderDTO: It is a dto object which will have an order related properties with their getters and setters.
 
 [4] Step-4: GlobalEceptionHandler and error handling will also be centralized in this util project.
+
+
 
 Remark: 
  [1] To give an access of activities, OrderDTO, GlobalExceptionHandler and error handler, this util project will
