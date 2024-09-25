@@ -6,4 +6,4 @@ A micro-service based architecture has been configured in it. It includes follow
 <br>[4] **Jaeger with micrometer:** It has been configured for monitoring all the logs of different micro-services at a centralized location.
 <br>[5] **Temporal-Server:** For managing any workflow, a Temporal Server has been configured. Temporal-Server web-UI can be used to monitor and analyse different state of a workflow.
 <br>[6] **Centralized Logging and Exception & Error handling:** AOP has been used for collecting logs and Exception and error handling.
-<br>[7] 
+<br>[7] **Temoral Server implementation for workflow***
